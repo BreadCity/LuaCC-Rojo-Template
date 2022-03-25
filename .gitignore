@@ -1,0 +1,16 @@
+# Project place file
+/Script.rbxlx
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
+
+# Output Files
+/dist
+
+# VSCode Settings
+.vscode/settings.json
+
+# Temporary Build Script
+build.bat
+build.sh
