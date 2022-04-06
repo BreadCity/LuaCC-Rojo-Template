@@ -1,8 +1,9 @@
 [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
 
-# LuaCC Template
+# LuaCC + Rojo Template
+[Rojo-less Variant](https://github.com/BreadCity/LuaCC-Template)
 
-Simple Template for using LuaCC.
+Simple Template for using LuaCC with Rojo.
 
 To bundle, run [`bundle.cmd`](bundle.cmd) or [`bundle.ps1`](bundle.ps1) - The output file will be in the `dist` directory.
 
