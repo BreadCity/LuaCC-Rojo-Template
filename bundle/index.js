@@ -3,6 +3,8 @@ const crypto = require('crypto');
 const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
+const BundleDir = path.resolve(__filename, '..')
+const ProjectRoot = path.resolve(BundleDir, '..');
 
 // https://stackoverflow.com/questions/5827612/node-js-fs-readdir-recursive-directory-search
 const walk = dir => {
@@ -24,7 +26,7 @@ const walk = dir => {
 
 // Get Arguments
 const files = walk(path.resolve(process.cwd()));
-const outFile = path.resolve(__filename, '..', 'dist', 'out.tmp-1.lua');
+const outFile = path.resolve(ProjectRoot, 'dist', 'out.tmp-1.lua');
 let arguments = '-o ' + path.relative(process.cwd(), outFile) + '';
 arguments +=
   ' ' + path.relative(process.cwd(), path.resolve(process.cwd(), 'init')) + '';
@@ -47,9 +49,7 @@ for (const index in files) {
 
 // Luacc command
 const command = `"${path.resolve(
-  __filename,
-  '..',
-  'bundle',
+  BundleDir,
   'luacc.lua',
 )}" ${arguments}`;
 // Write to build script and run it
@@ -57,9 +57,7 @@ if (process.platform === 'win32') {
   fs.writeFileSync(
     'build.bat',
     `"${path.resolve(
-      __filename,
-      '..',
-      'bundle',
+      BundleDir,
       'lua',
       'win32',
       'lua53',
