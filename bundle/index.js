@@ -76,15 +76,7 @@ luajit ${command}`,
 }
 // Polyfill it
 const output =
-  `---@diagnostic disable: undefined-global
------- https://github.com/Conglomeration/Lua/blob/main/dist/combine-fixtmp.js | https://github.com/BreadCity/LuaCC-Template/blob/main/bundle.js
--- Localize Globals
-local require = require;local math = math;local bit = bit or bit32;local error = error;local table = table;local string = string;local pairs = pairs;local setmetatable = setmetatable;local print = print;local tonumber = tonumber;local ipairs = ipairs;local getfenv = getfenv;local getgenv = getgenv;
--- General Polyfill
-local fenv = (getfenv or function()return _ENV end)();local package = --[[fenv.package or]] {["searchers"]={[2]=function(p) error("Module not bundled: "..p) end}}
--- Roblox Polyfill
-if _VERSION == "Luau" then require = (function(...) return package["searchers"][2](...)() end);math = setmetatable({["mod"]=math.fmod},{__index=fenv.math});end;
-` + fs.readFileSync(outFile, 'utf-8').replace(/src\//g, '').replace(/NOT_BUNDLED/g,'BUNDLED');
+  fs.readFileSync(path.resolve(__filename,'..','polyfill.lua')) + fs.readFileSync(outFile, 'utf-8').replace(/src\//g, '').replace(/NOT_BUNDLED/g,'BUNDLED');
 // Remove the temporary output
 fs.rmSync(outFile);
 // Replace hash
