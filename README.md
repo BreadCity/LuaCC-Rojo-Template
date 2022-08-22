@@ -32,4 +32,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ---
 
-Please note that output files **must also be licensed under the AGPL-3.0, and therefor, must disclose their source.** The only exception to this is Bread Hub.
+Please note that output files **must also be licensed under the AGPL-3.0, and therefor, must disclose their source.** The only exception to this, unless an exception is granted by Yielding#3961 (898971210531078164) is Bread Hub.
